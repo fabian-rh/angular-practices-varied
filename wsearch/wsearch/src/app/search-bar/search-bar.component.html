@@ -1,0 +1,15 @@
+<div class="box">
+    <form action="" (submit)="onFormSubmit(); $event.preventDefault()">
+        <input 
+        placeholder="Enter Search Text"
+        class="input"
+        type="text" (input)="onInput($event.target!)">
+    </form>
+
+</div>
+
+
+
+<!-- <form action="" (submit)="onFormSubmit($event)">
+    <input type="text" (input)="onInput($event.target!)">
+</form> -->

@@ -1,0 +1,31 @@
+const { fromEvent } = Rx;
+const { map, pluck } = RxOperators;
+
+const input = document.createElement('input');
+const container = document.querySelector('.container');
+container.appendChild(input);
+
+const observable = fromEvent(input, 'input')
+.pipe(
+	pluck('target', 'value'),
+  map(value => parseInt(value)),
+  map(value => {
+  	if(isNaN(value)){
+    	throw new error('Enter Number');
+    }
+    return value;
+  })
+  )
+
+observable.subscribe({
+	next(value){
+  	console.log(`Value: ${value}`);
+  },
+  error(err){
+  	console.error('Paso un Error', err.message);
+  }
+});
+
+
+//const observable = fromEvent(input, 'input');
+observable;
